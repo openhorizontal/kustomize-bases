@@ -1,0 +1,15 @@
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaConnector
+metadata:
+  name: cassandra-sink
+  labels:
+    strimzi.io/cluster: connect-cluster
+spec:
+  class: io.lenses.streamreactor.connect.cassandra.CassandraSinkConnector
+  tasksMax: 1
+  config:
+    key.converter: org.apache.kafka.connect.storage.StringConverter
+    value.converter: io.confluent.connect.avro.AvroConverter
+
+    # https://docs.lenses.io/latest/connectors/kafka-connectors/sinks/cassandra-1#storage-to-output-matrix-2
+    connect.cassandra.auth.provider: PLAIN
