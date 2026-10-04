@@ -1,2 +1,4 @@
 resources:
-  - vault.yaml
+  - vault-auth.yaml
+  - credentials.yaml
+  - ghcr-credentials.yaml
