@@ -3,7 +3,7 @@ kind: KafkaConnector
 metadata:
   name: cassandra-sink
   labels:
-    strimzi.io/cluster: connect-cluster
+    strimzi.io/cluster: kafka-cluster
 spec:
   class: io.lenses.streamreactor.connect.cassandra.CassandraSinkConnector
   tasksMax: 1
