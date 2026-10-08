@@ -1,0 +1,6 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: flink-state
+spec:
+  storageClassName: rook-ceph-bucket

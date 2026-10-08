@@ -1,0 +1,17 @@
+images:
+  - kind: FlinkDeployment
+    path: spec/image
+
+nameReference:
+  - kind: ServiceAccount
+    fieldSpecs:
+      - kind: FlinkDeployment
+        path: spec/serviceAccount
+  - kind: ConfigMap
+    fieldSpecs:
+      - kind: FlinkDeployment
+        path: spec/podTemplate/spec/containers/envFrom/configMapRef/name
+  - kind: ObjectBucketClaim
+    fieldSpecs:
+      - kind: FlinkDeployment
+        path: spec/podTemplate/spec/containers/envFrom/secretRef/name

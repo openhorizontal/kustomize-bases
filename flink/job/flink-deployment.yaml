@@ -1,0 +1,40 @@
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-job
+spec:
+  image: flink-job-image
+  flinkVersion: v2_2
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: 1
+    high-availability.type: kubernetes
+    s3.path.style.access: true
+    s3.use-instance-credentials: false
+  serviceAccount: flink
+  podTemplate:
+    spec:
+      imagePullSecrets:
+        - name: openhorizontal-ghcr-pull-credentials
+      containers:
+        - name: flink-main-container
+          imagePullPolicy: Always
+          env:
+            - name: ENABLE_BUILT_IN_PLUGINS
+              value: flink-s3-fs-presto-2.2.1.jar
+          envFrom:
+            - configMapRef:
+                name: flink-job-config
+            - secretRef:
+                name: flink-state
+  jobManager:
+    resource:
+      memory: '1024m'
+      cpu: 0.5
+  taskManager:
+    resource:
+      memory: '1024m'
+      cpu: 0.5
+  job:
+    jarURI: local:///opt/flink/usrlib/job.jar
+    parallelism: 1
+    upgradeMode: last-state

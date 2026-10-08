@@ -1,0 +1,7 @@
+resources:
+  - rbac.yaml
+  - flink-deployment.yaml
+  - object-bucket-claim.yaml
+
+configurations:
+  - kustomizeconfig.yaml
