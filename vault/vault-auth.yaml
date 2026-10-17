@@ -10,3 +10,5 @@ metadata:
 spec:
   vaultAuthGlobalRef:
     allowDefault: true
+  kubernetes:
+    serviceAccount: vault-auth
