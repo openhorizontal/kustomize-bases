@@ -1,9 +1,0 @@
-nameReference:
-  - kind: VaultAuth
-    fieldSpecs:
-      - kind: VaultStaticSecret
-        path: spec/vaultAuthRef
-  - kind: ServiceAccount
-    fieldSpecs:
-      - kind: VaultAuth
-        path: spec/kubernetes/serviceAccount

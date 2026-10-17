@@ -1,7 +1,3 @@
 resources:
   - vault-auth.yaml
-  - credentials.yaml
-  - ghcr-credentials.yaml
-
-configurations:
-  - kustomizeconfig.yaml
+  - ghcr-pull-credentials.yaml
