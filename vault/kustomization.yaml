@@ -1,3 +1,4 @@
 resources:
   - vault-auth.yaml
   - ghcr-pull-credentials.yaml
+  - default-service-account.yaml
